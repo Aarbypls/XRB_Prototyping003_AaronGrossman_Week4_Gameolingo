@@ -4,6 +4,6 @@ namespace Skeeball
 {
     public class SkeeballBall : MonoBehaviour
     {
-
+        
     }
 }

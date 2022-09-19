@@ -6,7 +6,8 @@ namespace Skeeball
     {
         [SerializeField] private int _scoreValue;
         [SerializeField] private ScoreManager _scoreManager;
-
+        [SerializeField] private SkeeballGameManager _skeeballGameManager;
+        
         private void OnTriggerEnter(Collider other)
         {
             if (!other.gameObject.GetComponent<SkeeballBall>())
@@ -15,7 +16,20 @@ namespace Skeeball
             }
             
             _scoreManager.AddToScore(_scoreValue);
-            Destroy(other.gameObject);
+
+            if (_skeeballGameManager.quizQuestionsLeft > 0)
+            {
+                Destroy(other.gameObject);
+                _skeeballGameManager.ProceedWithGame();
+            }
+            else
+            {
+                // Game finished
+                Destroy(other.gameObject);
+                _skeeballGameManager.HandleGameFinishedState();
+            }
+            
+
         }
     }
 }
