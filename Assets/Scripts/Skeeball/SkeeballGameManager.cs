@@ -23,6 +23,9 @@ namespace Skeeball
         [SerializeField] private GameObject _skeeball;
         [SerializeField] private List<int> numbersForSettingQuizAnswers = new List<int>() { 0, 1, 2 };
         [SerializeField] private ScoreManager _scoreManager;
+        [SerializeField] private TextMeshProUGUI _questionCountText;
+
+        private int _questionCount = 0;
 
         [Header("UI Screens")] 
         [SerializeField] private GameObject _startScreen;
@@ -40,8 +43,14 @@ namespace Skeeball
 
         void Start()
         {
+            SetQuestionCountText();
             InitializeQuizQuestions();
             InitializeUIScreens();
+        }
+
+        private void SetQuestionCountText()
+        {
+            _questionCountText.SetText("Question\n" + _questionCount);
         }
 
         private void InitializeUIScreens()
@@ -134,6 +143,8 @@ namespace Skeeball
             // Weird logic to avoid issue with Random.Range having 0 min and max
             int questionNumber = quizQuestionsLeft == 1 ? 0 : Random.Range(0, quizQuestionsLeft);
             quizQuestionsLeft--;
+            _questionCount++;
+            SetQuestionCountText();
             currentQuestionAndAnswer = questionsAndAnswers[questionNumber];
             questionsAndAnswers.RemoveAt(questionNumber);
             _questionText.SetText(currentQuestionAndAnswer.Question);

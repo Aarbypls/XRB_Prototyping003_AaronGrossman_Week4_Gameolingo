@@ -8,11 +8,18 @@ public class ScoreManager : MonoBehaviour
     private int score = 0;
 
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _scoreText2;
     
     public void AddToScore(int amountToAdd)
     {
         score += amountToAdd;
+        SetScoreTexts();
+    }
+
+    private void SetScoreTexts()
+    {
         _scoreText.SetText(score.ToString());
+        _scoreText2.SetText("Score\n" + score);
     }
 
     public int GetScore()
@@ -23,6 +30,6 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
-        _scoreText.SetText(score.ToString());
+        SetScoreTexts();
     }
 }
