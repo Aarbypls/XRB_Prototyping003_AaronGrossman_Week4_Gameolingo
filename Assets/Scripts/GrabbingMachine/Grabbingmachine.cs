@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 
-namespace GrabingMachine
+namespace GrabbingMachine
 {
     public class QuizQuestionAndAnswer
     {
@@ -12,18 +12,25 @@ namespace GrabingMachine
         public string CorrectAnswer  { get; set; }
         public string FakeAnswer1 { get; set; }
         public string FakeAnswer2 { get; set; }
+
+        public int prefabindex { get; set; }
     }
     
     public class Grabbingmachine : MonoBehaviour
     {
         public List<QuizQuestionAndAnswer> questionsAndAnswers = null;
-        public Transform skeeballSpawnPoint;
+        public Transform animalBallSpawnPoint;
+        public Transform clawSpawnPoint;
         public QuizQuestionAndAnswer currentQuestionAndAnswer;
         public int quizQuestionsLeft;
+        private GameObject gm;
 
-        [SerializeField] private GameObject _skeeball;
+        [SerializeField] private GameObject _animalBall;
+        [SerializeField] private List<GameObject> _animalBalls;
         [SerializeField] private List<int> numbersForSettingQuizAnswers = new List<int>() { 0, 1, 2 };
-        [SerializeField] private ScoreManager _scoreManager;
+        [SerializeField] private Animator _anim;
+        
+        //[SerializeField] private ScoreManager _scoreManager;
 
         [Header("UI Screens")] 
         [SerializeField] private GameObject _startScreen;
@@ -66,36 +73,29 @@ namespace GrabingMachine
                 {
                     new QuizQuestionAndAnswer
                     {
-                        Question = "Terry walks his _____ every morning.", CorrectAnswer = "Dog", FakeAnswer1 = "Carrot",
-                        FakeAnswer2 = "House"
+                        Question = "", CorrectAnswer = "Dog", FakeAnswer1 = "Parrot",
+                        FakeAnswer2 = "Mouse", prefabindex = 0
                     }
                 },
                 {
                     new QuizQuestionAndAnswer
                     {
-                        Question = "Eliza _____ her mother every day on the phone.", CorrectAnswer = "Calls",
-                        FakeAnswer1 = "Walks", FakeAnswer2 = "Learns"
+                        Question = "", CorrectAnswer = "Bird",
+                        FakeAnswer1 = "Cat", FakeAnswer2 = "Wolf", prefabindex = 1
                     }
                 },
                 {
                     new QuizQuestionAndAnswer
                     {
-                        Question = "Can you pick me up milk at the grocery _____?", CorrectAnswer = "Store",
-                        FakeAnswer1 = "Mail", FakeAnswer2 = "City"
+                        Question = "", CorrectAnswer = "Fish",
+                        FakeAnswer1 = "Pig", FakeAnswer2 = "Snake", prefabindex = 2
                     }
                 },
                 {
                     new QuizQuestionAndAnswer
                     {
-                        Question = "_____ is Han's favorite season of the year.", CorrectAnswer = "Winter", FakeAnswer1 = "Computer",
-                        FakeAnswer2 = "Backpack"
-                    }
-                },
-                {
-                    new QuizQuestionAndAnswer
-                    {
-                        Question = "Steve and Michelle exchanged business _____ at the end of the meeting.",
-                        CorrectAnswer = "Cards", FakeAnswer1 = "Jobs", FakeAnswer2 = "Glasses"
+                        Question = "", CorrectAnswer = "Elephant", FakeAnswer1 = "Turtle",
+                        FakeAnswer2 = "Dolphin", prefabindex = 3
                     }
                 }
             };
@@ -109,9 +109,16 @@ namespace GrabingMachine
 
             SetQuizQuestion();
             SetQuizAnswers();
-
+            _anim.SetBool("getBall",true);
+            gm = Instantiate(_animalBalls[currentQuestionAndAnswer.prefabindex], clawSpawnPoint.position, Quaternion.identity);
+            gm.transform.parent = clawSpawnPoint;
+            gm.GetComponent<Rigidbody>().isKinematic = true;
+            gm.GetComponent<AudioSource>().playOnAwake = true;
             _quizScreen.SetActive(true);
-            _scoreScreen.SetActive(true);
+            
+            //_scoreScreen.SetActive(true);
+            
+            
         }
 
         private void SetQuizAnswers()
@@ -152,13 +159,23 @@ namespace GrabingMachine
             _startScreen.SetActive(true);
         }
 
-        public void SpawnSkeeball()
+        public void SpawnAnimalBall()
         {
-            Instantiate(_skeeball, skeeballSpawnPoint.position, Quaternion.identity);
+            Instantiate(_animalBalls[currentQuestionAndAnswer.prefabindex], animalBallSpawnPoint.position, Quaternion.identity);
+            if (quizQuestionsLeft > 0)
+            {
+                ProceedWithGame();
+            }
+            else
+            {
+                HandleGameFinishedState();
+            }
         }
 
         public void SubmitAnswer(int answerNumber)
         {
+            _anim.SetBool("getBall",false);
+            Destroy(gm);
             if (_quizAnswers[answerNumber]._answerText.text == currentQuestionAndAnswer.CorrectAnswer)
             {
                 HandleCorrectAnswer();
@@ -179,7 +196,8 @@ namespace GrabingMachine
 
             _quizScreen.SetActive(false);
             _correctAnswerScreen.SetActive(true);
-            SpawnSkeeball();
+            SpawnAnimalBall();
+            
         }
 
         private void HandleIncorrectAnswer()
@@ -226,7 +244,15 @@ namespace GrabingMachine
             SetQuizQuestion();
             SetQuizAnswers();
             
+            _anim.SetBool("getBall",true);
+            gm = Instantiate(_animalBalls[currentQuestionAndAnswer.prefabindex], clawSpawnPoint.position, Quaternion.identity);
+            gm.transform.parent = clawSpawnPoint;
+            gm.GetComponent<Rigidbody>().isKinematic = true;
+            gm.GetComponent<AudioSource>().playOnAwake = true;
+            
             _quizScreen.SetActive(true);
+            
+            
         }
 
         private void ResetNumbersForQuizAnswers()
@@ -243,11 +269,11 @@ namespace GrabingMachine
             InitializeQuizQuestions();
 
             _gameFinishedScreen.SetActive(true);
+            _anim.SetBool("getBall",false);
         }
 
         public void RestartGame()
         {
-            _scoreManager.ResetScore();
             ResetNumbersForQuizAnswers();
             InitializeQuizQuestions();
             InitializeUIScreens();
