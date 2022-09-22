@@ -21,7 +21,6 @@ namespace Skeeball
 
         public void AddForceOnThrow()
         {
-            Debug.Log("Adding force");
             _myRigidbody.AddRelativeForce(Vector3.forward * 4f, ForceMode.Impulse);
             _myRigidbody.angularVelocity = _myRigidbody.angularVelocity * 5f;
         }
