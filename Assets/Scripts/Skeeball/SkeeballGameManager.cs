@@ -24,8 +24,7 @@ namespace Skeeball
         [SerializeField] private List<int> numbersForSettingQuizAnswers = new List<int>() { 0, 1, 2 };
         [SerializeField] private ScoreManager _scoreManager;
         [SerializeField] private TextMeshProUGUI _questionCountText;
-
-        private int _questionCount = 0;
+        [SerializeField] private int _questionCount = 0;
 
         [Header("UI Screens")] 
         [SerializeField] private GameObject _startScreen;
@@ -50,7 +49,7 @@ namespace Skeeball
 
         private void SetQuestionCountText()
         {
-            _questionCountText.SetText("Question\n" + _questionCount);
+            _questionCountText.SetText("QUESTION\n" + _questionCount);
         }
 
         private void InitializeUIScreens()
@@ -249,6 +248,7 @@ namespace Skeeball
             _correctAnswerScreen.SetActive(false);
             _incorrectAnswerScreen.SetActive(false);
             
+            _questionCount = 0;
             ResetNumbersForQuizAnswers();
             InitializeQuizQuestions();
 
