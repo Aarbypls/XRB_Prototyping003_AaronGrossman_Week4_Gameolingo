@@ -24,6 +24,9 @@ namespace GrabbingMachine
         public QuizQuestionAndAnswer currentQuestionAndAnswer;
         public int quizQuestionsLeft;
         private GameObject gm;
+        public float timeRemaining = 10;
+        public bool timerIsRunning = false;
+        public TMP_Text timeText;
 
         [SerializeField] private GameObject _animalBall;
         [SerializeField] private List<GameObject> _animalBalls;
@@ -50,6 +53,7 @@ namespace GrabbingMachine
         {
             InitializeQuizQuestions();
             InitializeUIScreens();
+            
         }
 
         private void InitializeUIScreens()
@@ -115,7 +119,7 @@ namespace GrabbingMachine
             gm.GetComponent<Rigidbody>().isKinematic = true;
             gm.GetComponent<AudioSource>().playOnAwake = true;
             _quizScreen.SetActive(true);
-            
+            timerIsRunning = true;
             //_scoreScreen.SetActive(true);
             
             
@@ -251,6 +255,8 @@ namespace GrabbingMachine
             gm.GetComponent<AudioSource>().playOnAwake = true;
             
             _quizScreen.SetActive(true);
+            timeRemaining = 10;
+            timerIsRunning = true;
             
             
         }
@@ -277,6 +283,32 @@ namespace GrabbingMachine
             ResetNumbersForQuizAnswers();
             InitializeQuizQuestions();
             InitializeUIScreens();
+        }
+        
+
+        void Update()
+        {
+            if (timerIsRunning)
+            {
+                if (timeRemaining > 0)
+                {
+                    timeRemaining -= Time.deltaTime;
+                    DisplayTime(timeRemaining);
+                }
+                else
+                {
+                    timeText.text = "Time has run out!";
+                    timeRemaining = 0;
+                    timerIsRunning = false;
+                }
+            }
+        }
+        void DisplayTime(float timeToDisplay)
+        {
+            timeToDisplay += 1;
+            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+            timeText.text = string.Format("{1:00}", seconds);
+            timeText.text += " s left";
         }
     }
 }
