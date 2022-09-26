@@ -20,6 +20,8 @@ namespace Skeeball
         public QuizQuestionAndAnswer currentQuestionAndAnswer;
         public int quizQuestionsLeft;
 
+        private GameObject _skeeballSelection = null;
+
         [SerializeField] private GameObject _skeeball;
         [SerializeField] private List<int> numbersForSettingQuizAnswers = new List<int>() { 0, 1, 2 };
         [SerializeField] private ScoreManager _scoreManager;
@@ -58,6 +60,7 @@ namespace Skeeball
             // Safety check
             _scoreScreen.SetActive(false);
             _instructionsScreen.SetActive(false);
+            _ballSelectionScreen.SetActive(false);
             _quizScreen.SetActive(false);
             _correctAnswerScreen.SetActive(false);
             _incorrectAnswerScreen.SetActive(false);
@@ -171,7 +174,15 @@ namespace Skeeball
 
         public void SpawnSkeeball()
         {
-            Instantiate(_skeeball, skeeballSpawnPoint.position, Quaternion.identity);
+            Instantiate(_skeeballSelection == null ? _skeeball : _skeeballSelection, skeeballSpawnPoint.position, Quaternion.identity);
+        }
+
+        public void ChangeSkeeballSelection(GameObject skeeball)
+        {
+            if (skeeball.GetComponent<SkeeballBall>())
+            {
+                _skeeballSelection = skeeball;
+            }
         }
 
         public void SubmitAnswer(int answerNumber)

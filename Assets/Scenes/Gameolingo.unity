@@ -374,10 +374,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5562478, g: 0.8613507, b: 0.9433962, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.54187435, g: 0.9339623, b: 0.6210025, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -396,7 +396,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 10196125}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1575513896}
+        m_TargetAssemblyTypeName: Skeeball.SkeeballGameManager, Assembly-CSharp
+        m_MethodName: ChangeSkeeballSelection
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6255772445735540714, guid: 9ed362db37853cd4b8680d8b1d086e7e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &10196125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2863,7 +2875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &236119318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15829,10 +15841,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5562478, g: 0.8613507, b: 0.9433962, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.54187435, g: 0.9339623, b: 0.6210025, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -15851,7 +15863,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1330644449}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1575513896}
+        m_TargetAssemblyTypeName: Skeeball.SkeeballGameManager, Assembly-CSharp
+        m_MethodName: ChangeSkeeballSelection
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6255772445735540714, guid: 6fea3d456effab64db3517d0e3eff924, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1330644449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15865,7 +15889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15972,7 +15996,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1336401188}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1575513896}
+        m_TargetAssemblyTypeName: Skeeball.SkeeballGameManager, Assembly-CSharp
+        m_MethodName: ChangeSkeeballSelection
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6255772445735540714, guid: 2752a0b36b8b43f488ece430c14c9b35, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1336401188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18222,6 +18258,7 @@ MonoBehaviour:
   skeeballSpawnPoint: {fileID: 6025492789714925162}
   quizQuestionsLeft: 5
   _skeeball: {fileID: 2576295480096291468, guid: 8043aa2c0ca987d4d989e44e96e694d1, type: 3}
+  _skeeballSelection: {fileID: 0}
   numbersForSettingQuizAnswers: 000000000100000002000000
   _scoreManager: {fileID: 1575513895}
   _questionCountText: {fileID: 1469356574}
@@ -20188,7 +20225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1696455174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22298,10 +22335,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5562478, g: 0.8613507, b: 0.9433962, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.54187435, g: 0.9339623, b: 0.6210025, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -22320,7 +22357,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1911531053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1575513896}
+        m_TargetAssemblyTypeName: Skeeball.SkeeballGameManager, Assembly-CSharp
+        m_MethodName: ChangeSkeeballSelection
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6255772445735540714, guid: 4fa6fc0cbb2b6e44fb6a9ece138aa1e5, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1911531053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22334,7 +22383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -26865,10 +26914,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5562478, g: 0.8613507, b: 0.9433962, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.54187435, g: 0.9339623, b: 0.6210025, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -26887,7 +26936,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2026026868}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1575513896}
+        m_TargetAssemblyTypeName: Skeeball.SkeeballGameManager, Assembly-CSharp
+        m_MethodName: ChangeSkeeballSelection
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2576295480096291468, guid: 8043aa2c0ca987d4d989e44e96e694d1, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2026026868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26901,7 +26962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
