@@ -29,6 +29,7 @@ namespace Skeeball
         [Header("UI Screens")] 
         [SerializeField] private GameObject _startScreen;
         [SerializeField] private GameObject _instructionsScreen;
+        [SerializeField] private GameObject _ballSelectionScreen;
         [SerializeField] private GameObject _scoreScreen;
         [SerializeField] private GameObject _quizScreen;
         [SerializeField] private GameObject _correctAnswerScreen;
@@ -154,10 +155,17 @@ namespace Skeeball
             _startScreen.SetActive(false);
             _instructionsScreen.SetActive(true);
         }
+        
+        public void ShowBallSelection()
+        {
+            _startScreen.SetActive(false);
+            _ballSelectionScreen.SetActive(true);
+        }
 
         public void ShowStartScreen()
         {
             _instructionsScreen.SetActive(false);
+            _ballSelectionScreen.SetActive(false);
             _startScreen.SetActive(true);
         }
 
