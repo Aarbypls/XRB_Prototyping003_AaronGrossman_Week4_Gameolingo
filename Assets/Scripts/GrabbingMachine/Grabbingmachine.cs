@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 
 namespace GrabbingMachine
@@ -27,6 +28,8 @@ namespace GrabbingMachine
         public float timeRemaining = 10;
         public bool timerIsRunning = false;
         public TMP_Text timeText;
+        public TMP_Text scoreText;
+        public int score = 0;
 
         [SerializeField] private GameObject _animalBall;
         [SerializeField] private List<GameObject> _animalBalls;
@@ -198,6 +201,9 @@ namespace GrabbingMachine
             // - timer for the next screen
             // - etc.
 
+            score = Mathf.FloorToInt(timeRemaining) * 10 + 25;
+            scoreText.text = score.ToString();
+            scoreText.text += " points"; 
             _quizScreen.SetActive(false);
             _correctAnswerScreen.SetActive(true);
             SpawnAnimalBall();
@@ -305,9 +311,12 @@ namespace GrabbingMachine
         }
         void DisplayTime(float timeToDisplay)
         {
-            timeToDisplay += 1;
+            /*timeToDisplay += 1;
             float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-            timeText.text = string.Format("{1:00}", seconds);
+            float milli = Mathf.FloorToInt((timeToDisplay*1000) % 1000);
+            timeText.text = string.Format("{1:00}.{2:00}", seconds,milli);
+            */
+            timeText.text = timeToDisplay.ToString("#.00");
             timeText.text += " s left";
         }
     }
