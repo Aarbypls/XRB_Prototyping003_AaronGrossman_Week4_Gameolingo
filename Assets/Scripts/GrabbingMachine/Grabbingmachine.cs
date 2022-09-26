@@ -123,6 +123,7 @@ namespace GrabbingMachine
             gm.GetComponent<AudioSource>().playOnAwake = true;
             _quizScreen.SetActive(true);
             timerIsRunning = true;
+            timeRemaining = 10;
             //_scoreScreen.SetActive(true);
             
             
