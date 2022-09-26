@@ -202,7 +202,7 @@ namespace GrabbingMachine
             // - timer for the next screen
             // - etc.
 
-            score = Mathf.FloorToInt(timeRemaining) * 10 + 25;
+            score += Mathf.FloorToInt(timeRemaining) * 10 + 25;
             scoreText.text = score.ToString();
             scoreText.text += " points"; 
             _quizScreen.SetActive(false);
