@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int _score = 2600;
+    private int _score = 0;
 
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _scoreText2;
@@ -14,28 +14,28 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        SetMainMenuScoreTexts();
+        SetMainMenuScoreTexts(0);
     }
 
-    private void SetMainMenuScoreTexts()
+    private void SetMainMenuScoreTexts(int amountToAdd)
     {
         foreach (MenuManager menuManager in _menuManagers)
         {
-            menuManager.UpdateScoreText(_score);
+            menuManager.UpdateScoreText(amountToAdd);
         }
     }
 
     public void AddToScore(int amountToAdd)
     {
         _score += amountToAdd;
-        SetScoreTexts();
+        SetScoreTexts(amountToAdd);
     }
 
-    private void SetScoreTexts()
+    private void SetScoreTexts(int amountToAdd)
     {
         _scoreText.SetText(_score.ToString());
         _scoreText2.SetText("Score\n" + _score);
-        SetMainMenuScoreTexts();
+        SetMainMenuScoreTexts(amountToAdd);
     }
 
     public int GetScore()
@@ -46,6 +46,6 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         _score = 0;
-        SetScoreTexts();
+        SetScoreTexts(0);
     }
 }

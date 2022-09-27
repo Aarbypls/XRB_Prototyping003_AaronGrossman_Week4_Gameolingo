@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private InputActionReference MenuActionReference;
     [SerializeField] private List<GameObject> teleportPoints;
     [SerializeField] private TMP_Text _scoreText;
+
+    private int _score = 2600;
     
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,7 @@ public class MenuManager : MonoBehaviour
 
     public void UpdateScoreText(int score)
     {
-        _scoreText.SetText(score + "/5000 points");
+        _score += score;
+        _scoreText.SetText((_score) + "/5000 points");
     }
 }
