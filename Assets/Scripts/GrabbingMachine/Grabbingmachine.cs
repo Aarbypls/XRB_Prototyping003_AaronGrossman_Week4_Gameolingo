@@ -36,7 +36,7 @@ namespace GrabbingMachine
         [SerializeField] private List<int> numbersForSettingQuizAnswers = new List<int>() { 0, 1, 2 };
         [SerializeField] private Animator _anim;
         
-        //[SerializeField] private ScoreManager _scoreManager;
+        [SerializeField] private ScoreManager _scoreManager;
 
         [Header("UI Screens")] 
         [SerializeField] private GameObject _startScreen;
@@ -56,7 +56,6 @@ namespace GrabbingMachine
         {
             InitializeQuizQuestions();
             InitializeUIScreens();
-            
         }
 
         private void InitializeUIScreens()
@@ -125,8 +124,6 @@ namespace GrabbingMachine
             timerIsRunning = true;
             timeRemaining = 10;
             //_scoreScreen.SetActive(true);
-            
-            
         }
 
         private void SetQuizAnswers()
@@ -280,6 +277,7 @@ namespace GrabbingMachine
             
             ResetNumbersForQuizAnswers();
             InitializeQuizQuestions();
+            _scoreManager.AddToScore(score);
 
             _gameFinishedScreen.SetActive(true);
             _anim.SetBool("getBall",false);
